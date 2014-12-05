@@ -769,9 +769,6 @@ static void nfs_handler(uchar *pkt, unsigned dest, struct in_addr sip,
 		reply = nfs_umountall_reply(pkt, len);
 		if (reply == -NFS_RPC_DROP) {
 			break;
-		} else if (reply == -NFS_RPC_ERR) {
-			debug("*** ERROR: Cannot umount\n");
-			net_set_state(NETLOOP_FAIL);
 		} else {
 			puts("\ndone\n");
 			net_set_state(nfs_download_state);
