@@ -31,4 +31,5 @@ static inline void iomuxc_set_rgmii_io_voltage(int io_vol)
 	__raw_writel(io_vol, IOMUXC_SW_PAD_CTL_GRP_DDR_TYPE_RGMII);
 }
 
+char *get_reset_cause(int clr);
 #endif /* __SYS_PROTO_IMX6_ */
