@@ -743,6 +743,10 @@ config TARGET_TS7970
 	bool "Support TS-7970"
 	select CPU_V7
 
+config TARGET_TS7990
+	bool "Support TS-7990"
+	select CPU_V7
+
 config ARCH_VF610
 	bool "Freescale Vybrid"
 	select CPU_V7
@@ -1308,6 +1312,7 @@ source "board/toradex/colibri_pxa270/Kconfig"
 source "board/technologic/ts4600/Kconfig"
 source "board/technologic/ts4900/Kconfig"
 source "board/technologic/ts7970/Kconfig"
+source "board/technologic/ts7990/Kconfig"
 source "board/vscom/baltos/Kconfig"
 source "board/woodburn/Kconfig"
 source "board/work-microwave/work_92105/Kconfig"
