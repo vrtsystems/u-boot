@@ -249,8 +249,10 @@ mxsmmc_send_cmd(struct mmc *mmc, struct mmc_cmd *cmd, struct mmc_data *data)
 
 	/* Check command timeout */
 	if (reg & SSP_STATUS_RESP_TIMEOUT) {
-		printf("MMC%d: Command %d timeout (status 0x%08x)\n",
-			mmc->block_dev.devnum, cmd->cmdidx, reg);
+		if (priv->id != 1) {
+			printf("MMC%d: Command %d timeout (status 0x%08x)\n",
+					mmc->block_dev.devnum, cmd->cmdidx, reg);
+		}
 		return -ETIMEDOUT;
 	}
 
