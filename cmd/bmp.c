@@ -215,6 +215,11 @@ static int bmp_info(ulong addr)
 	return(0);
 }
 
+__weak int bmp_display_post(void)
+{
+	return 0;
+}
+
 /*
  * Subroutine:  bmp_display
  *
@@ -265,6 +270,8 @@ int bmp_display(ulong addr, int x, int y)
 
 	if (bmp_alloc_addr)
 		free(bmp_alloc_addr);
+
+	splash_screen_prepare();
 
 	return ret ? CMD_RET_FAILURE : 0;
 }
